@@ -147,7 +147,7 @@ repeatBtn.addEventListener("click", repeatMyParam);
 
 const queryTest = () => {
   axios
-    .get(baseURL + "/query-test?iamconfused=100")
+    .get(baseURL + "/query-test?=100")
     .then((res) => console.log(res.data))
     .catch((err) => console.log(err));
 };
@@ -173,9 +173,13 @@ queryBtn.addEventListener("click", queryTest);
     In the function that you wrote for Problem 8, change the URL to test a couple different scenarios. 
 
     1: Send no queries on the URL -- what happened? 
+it will read, you sent an empty query
+
 
     2: Send more than 1 query on the URL -- what happened? 
-*/
+it will read you sent more than 1 query 
+
+    */
 
 // Edit code in Problem 8
 
