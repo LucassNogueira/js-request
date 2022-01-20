@@ -86,7 +86,12 @@ const ohMy = () => {
   axios
     .get(baseURL + "/animals")
     .then((res) => {
-      console.log(res.data);
+      for (i = 0; i < res.data.length; i++) {
+        let article = document.querySelector("#animals-button");
+        const pTag = document.createElement("p");
+        pTag.textContent = res.data[i];
+        article.appendChild(pTag);
+      }
     })
     .catch((err) => console.log(err));
 };
@@ -105,7 +110,7 @@ document.getElementById("animals-button").addEventListener("click", ohMy);
     
     We'll be updating this function in the next problem.
 */
-console.log(repeatText);
+
 const repeatMyParam = () => {
   axios
     .get(baseURL + "/repeat/howdy")
@@ -142,7 +147,7 @@ repeatBtn.addEventListener("click", repeatMyParam);
 
 const queryTest = () => {
   axios
-    .get(baseURL + "/query-test?iamconfused")
+    .get(baseURL + "/query-test?iamconfused=100")
     .then((res) => console.log(res.data))
     .catch((err) => console.log(err));
 };
