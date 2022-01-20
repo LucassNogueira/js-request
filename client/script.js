@@ -140,6 +140,16 @@ repeatBtn.addEventListener("click", repeatMyParam);
 
 // CODE HERE
 
+const queryTest = () => {
+  axios
+    .get(baseURL + "/query-test?iamconfused")
+    .then((res) => console.log(res.data))
+    .catch((err) => console.log(err));
+};
+
+const queryBtn = document.querySelector("#query-button");
+
+queryBtn.addEventListener("click", queryTest);
 ////////////////
 //INTERMEDIATE//
 ////////////////
