@@ -207,3 +207,28 @@ it will read you sent more than 1 query
 */
 
 // CODE HERE
+
+const createFood = (evt) => {
+  evt.preventDefault();
+  const foodInput = document.querySelector("#add-food");
+  const body = {
+    newFood: foodInput.value,
+  };
+  axios.post(baseURL + "/food", body).then((res) => {
+    console.log(res.data);
+
+    const foodList = document.querySelector("section");
+    foodList.innerHTML = "";
+    res.data.forEach((foodStr) => {
+      const newP = document.createElement("p");
+      newP.textContent = foodStr;
+
+      foodList.appendChild(newP);
+    });
+  });
+};
+
+document.querySelector("form").addEventListener("submit", createFood);
+// const submitBtn = document.querySelector("form");
+
+// submitBtn.addEventListener("submit", createFood);
